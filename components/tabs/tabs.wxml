@@ -1,0 +1,13 @@
+<view class="tabs">
+  <!-- 左 -->
+  <block wx:for="{{tabs}}" wx:key="{{index}}">
+     <view class="left" bindtap="itemClick" data-index="{{index}}">
+        <text class="{{ currentIndex == index ?'tabs-text-active-class':'' }}">{{item}}</text>
+     </view>
+  </block>
+  
+  <!-- 右 -->
+  <!-- <view class="right">
+    <text>1</text>
+  </view> -->
+</view>

@@ -1,0 +1,14 @@
+/* 导入weui 框架 */
+@import "./style/weui.wxss";
+
+page{
+  height: 100%;
+}
+
+
+
+
+/* 导入authorize模板的样式 */
+@import "./style/authorize.wxss";
+/* 导入nullcart模板的样式 */
+@import "./style/nullcart.wxss";

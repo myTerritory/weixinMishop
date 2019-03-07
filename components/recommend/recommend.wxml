@@ -1,0 +1,9 @@
+<view class="recommend">
+
+    <block wx:for="{{items}}" wx:key="{{index}}">
+        <view class="view-item" bindtap="itemclick" data-index="{{index}}">
+            <image src="{{item}}" class="img"></image>
+        </view>
+  </block>
+
+</view>

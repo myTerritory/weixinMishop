@@ -1,0 +1,60 @@
+<!-- 1.导入购物车的模板 -->
+<import src="../../template/nullcart.wxml"></import>
+
+<block wx:if="{{cartlist.length > 0}}">
+
+  <!--滚动视图  -->
+  <scroll-view class="cart-scroll-view" scroll-y>
+    <checkbox-group bindchange="selectGoods">
+        <!-- 购物车的item布局 -->
+        <block wx:for="{{cartlist}}" wx:key="{{index}}">
+              <view class="cart-item">
+            <!-- 左 -->
+            <view class="left">
+              <checkbox value="{{item.goodId}}" checked="{{item.isSelect}}"></checkbox>
+            </view>
+
+            <!-- 中 -->
+            <view class="center">
+              <image src="../../image/user-head.png"></image>
+              <text>商品的tite</text>
+            </view>
+
+            <!-- 右 -->
+            <view class="right">
+                <text>{{item.counts}} x </text>
+                <text> {{item.price}} 元</text>
+            </view>
+        </view>
+        </block>
+    </checkbox-group>
+
+
+
+  </scroll-view>
+
+
+   <!-- 结算accountbar组件 -->
+   <account-bar
+    id = 'account-bar'
+    summary="{{summary}}"
+    bindAccountBarClick="accountBarClick"
+   ></account-bar>
+
+</block>
+
+
+
+
+<!-- 购物车没有数据 -->
+<block wx:else>
+  <!-- 2.使用自定义空购物车的模板 -->
+  <template is="nullcart" data="{{btnclick:'goToHome',logo:'../../image/zw_iconb4.png'}}"></template>
+  </block>
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+//下面编写的代码属于微信的脚本语言( 语法类似js ) es5
+//当我们要使用wxs这个语言的时候,要去差文档
+//https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxs/
+var formatTime = function(time){
+  //1.要把时间戳转成date
+  var date = getDate(time);
+  //2.从date中拿到年月日
+  var result = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+  //3.返回结果
+  return result;
+}
+
+module.exports ={
+  formatTime: formatTime
+}

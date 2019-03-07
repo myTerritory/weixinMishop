@@ -1,0 +1,13 @@
+<view class="categorybar">
+
+  <block wx:for="{{categorys}}" wx:key="{{index}}">
+    <view 
+      bindtap="itemClick"
+      data-index="{{index}}"
+      class="categorybar-item">
+        <image src="{{item.inageurl}}" class="image-bar"></image>
+       <text class="text-bar-item">{{item.name}}</text>
+    </view>
+  </block>
+
+</view>

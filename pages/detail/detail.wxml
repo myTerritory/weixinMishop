@@ -1,0 +1,109 @@
+<!-- 导入一个加载进度的模板 -->
+<import src="../../template/loading.wxml"></import>
+<!-- 导入外部的微信脚本语言 -->
+<wxs src="../../wxs/tools.wxs" module="tools"></wxs>
+
+<!-- 拿到详情页面的数据 -->
+<block wx:if="{{detailBean}}">
+  <!-- 滚动视图 -->
+  <scroll-view class="detail-scroll-view" scroll-y>
+    
+    <!-- 轮播图组件 -->
+    <swiper class="detail-swiper"
+      indicator-dots
+      indicator-color="white"
+      indicator-active-color="#FF6802"
+    >
+        <block wx:for="{{detailBean.banners}}" wx:key="{{index}}">
+          <swiper-item>
+            <image  src="{{item}}"></image>
+          </swiper-item>
+        </block>
+    
+    </swiper>
+
+    <!-- 商品信息 -->
+    <view class="good-info">
+        <view>{{detailBean.title}}</view>
+        <view>{{detailBean.descp}}</view>
+        <view>{{detailBean.price}}元</view>
+    </view>
+
+    <!-- 用户评论 -->
+    <view class="user-assess">
+      <text>用户的评价( {{detailBean.userAssess.number}} )</text>
+      <text>查看全部的评论</text>
+    </view>
+
+    <!-- 用户评论的内容 -->
+    <block wx:for="{{detailBean.userAssess.users}}"
+           wx:key="{{index}}"
+           wx:for-item="user" 
+           >
+        <view class="user-assess-info">
+          <!-- 左 -->
+          <view class="left">
+              <image src="{{user.headerImageUrl}}"></image>
+          </view>
+          <!-- 右 -->
+          <view class="right">
+              <view class="user-name">{{user.name}}</view>
+              <view class="user-msg">{{user.msg}}</view>
+              <view class="user-time">{{ tools.formatTime(user.timeTamp) }}</view>
+          </view>
+      </view>
+    </block>
+
+    <!-- 自定义tabs组件 -->
+    <tabs
+      tabs="{{ tabs }}"
+      bindTabsClick="tabsClick"
+      tabs-text-active-class="tabs-text-active"
+    ></tabs>
+
+    <!-- 图文详情 -->
+    <block wx:if="{{tabsIndex == 0}}">
+      <view>
+        <!-- 很多图片 -->
+        <block wx:for="{{detailBean.detailpics}}" wx:key="{{index}}">
+          <view class="view-item-pic">
+              <image src="{{item}}"></image>
+          </view>
+        </block>
+          
+      </view>
+    </block>
+
+    <!-- 参数详情 -->
+    <block wx:if="{{tabsIndex == 1}}">
+      <view>
+        <!-- 很多图片 -->
+        <block wx:for="{{detailBean.detailparams}}" wx:key="{{index}}">
+          <view class="view-item-pic">
+              <image src="{{item}}"></image>
+          </view>
+        </block>
+      </view>
+    </block>
+
+  </scroll-view>
+
+  <!-- 加购物的自定义组件 -->
+  <add-cart
+    bindAddCartClick="addCartClick"
+  ></add-cart>
+
+  <!--  如果没有授权,添加一个授权的button -->
+  <block wx:if="{{!userInfo}}">
+      <button class="btn-transparent" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+  </block>
+
+</block>
+
+
+<!-- 没有拿到商品详情页面的数据 -->
+<block wx:else>
+  <template is="loading" />
+</block>
+
+

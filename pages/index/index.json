@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "category-bar":"../../components/categorybar/categorybar",
+    "recommend": "../../components/recommend/recommend"
+  }
+}

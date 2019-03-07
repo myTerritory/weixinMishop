@@ -1,0 +1,32 @@
+.tabs{
+  height: 110rpx;
+  background: white;
+  margin-top: 20rpx;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tabs view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left{
+  flex:1;
+  height: 100%;
+
+  font-size: 36rpx;
+  color: gray;
+}
+
+.left + view{
+  border-left: 2rpx solid #ddd;
+}
+
+.right{
+  flex:1;
+  height: 100%;
+}

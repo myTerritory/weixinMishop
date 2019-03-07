@@ -1,0 +1,33 @@
+.categorybar{
+  height: 200rpx;
+  /* background: white; */
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.categorybar-item{
+  flex: 1;
+  height: 100%;
+  /* border-right: 1rpx solid red; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10rpx;
+}
+
+.image-bar{
+  width: 100rpx;
+  height: 86rpx;
+}
+
+.text-bar-item{
+  color: gray;
+  font-size: 28rpx;
+}
+
+
+

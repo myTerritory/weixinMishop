@@ -1,0 +1,6 @@
+<template name="author-view">
+    <view style="background:#f4f4f4;height:120rpx;display: flex;flex-direction: row;align-items: center;">
+            <icon style="margin:0rpx 20rpx;" type="info" size="40rpx"/>
+            <text style="color:gray;font-size:28rpx">请授权头像等信息，以便为您提供更好的服务</text>
+  </view>
+</template>

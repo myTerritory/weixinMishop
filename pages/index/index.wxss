@@ -1,0 +1,100 @@
+/*search 布局  */
+.view-search{
+  width: 100%;
+  height: 80rpx;
+  background: #FF6902;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.view-search .view-search-bg{
+  width: 80%;
+  height: 60rpx;
+  background: white;
+  border-radius: 30rpx;
+  margin-top: 10rpx;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+/*搜索的图片  */
+.view-search .image-search{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 10rpx;
+}
+/*占位符  */
+.view-search .text-title{
+  color: gray;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+}
+
+/*banner  */
+.view-banner,
+.image-banner{
+  width: 100%;
+  height: 400rpx;
+}
+
+
+/* 商品分类的标题 */
+.gridview-title{
+  /* background: skyblue; */
+  width: 100%;
+  height: 460rpx;
+}
+
+/* 商品列表标题的图标 */
+.gridview-title image{
+  width: 100%;
+  height: 100%;
+}
+
+
+/* 商品列表的item */
+.gridview-content-item{
+    width: 50%;
+    height: 460rpx;
+    /* background: skyblue; */
+    display: inline-block;
+    border-top: 4rpx solid white;
+    box-sizing: border-box;
+}
+
+.gridview-content-item:nth-of-type(odd){
+  border-right: 4rpx solid white;
+}
+
+.gridview-content-item image{
+  width: 100%;
+  height: 260rpx;
+}
+
+.gridview-content-info{
+  padding:0rpx 30rpx;
+}
+
+.text-title{
+  font-size: 36rpx;
+}
+
+.text-desp{
+  font-size: 26rpx;
+  color: gray;
+  margin: 10rpx 0rpx;
+}
+
+.text-price{
+  font-size: 32rpx;
+  color: #FF6802;
+}
+
+
+
+

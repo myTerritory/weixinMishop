@@ -1,0 +1,91 @@
+<!-- 1.导入本地的模板 -->
+<import src="../../template/loading.wxml"/>
+<import src="../../template/author-view.wxml"/>
+
+<!-- 代表已经拿到了数据 -->
+<block wx:if="{{homeBean}}">
+  <view style="width:100%;height:100%;" class="home-content">
+
+   <!-- 显示授权的布局 -->
+   <button bindgetuserinfo="bindgetuserinfo" style="margin:0rpx;padding:0"  open-type='getUserInfo' wx:if="{{ userInfo == null }}">
+       <template is="author-view"></template>
+   </button>
+
+    <!-- 显示搜索 -->
+    <navigator class="view-search"
+    url='../search/search'
+    >
+      <view class="view-search-bg">
+         <image src="../../image/search_icon.png" class="image-search"></image>
+         <text class="text-title">搜索商品</text>   
+      </view>
+    </navigator> 
+
+    <!-- 轮播图布局 -->
+    <swiper class="view-banner" indicator-dots="true"
+      indicator-color="white" indicator-active-color="#FF6802"
+    >
+      <block wx:for="{{homeBean.banners}}" wx:key="{{index}}">
+        <swiper-item>
+            <image src="{{item}}" class="image-banner"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <!-- 分类栏 -->
+    <category-bar 
+        categorys="{{homeBean.tabBars}}"
+        bindItemClick="categoryItemClick"
+    ></category-bar>
+
+    <!-- 推荐栏 -->
+    <recommend items ="{{homeBean.firstItems}}" ></recommend>
+
+    <!-- 商品分类 2 -->
+    <block wx:for="{{homeBean.categorys}}"
+           wx:key="{{index}}" 
+           wx:for-item="category">
+      <view class="gridview">
+        <!-- 标题 -->
+        <view class="gridview-title">
+          <image src="{{category.titleImage}}"></image>
+        </view>  
+
+        <!-- 商品列表 -->
+        <view class="gridview-content">
+            <block
+              wx:for="{{category.items}}"
+              wx:for-index="id"
+              wx:key="{{id}}" 
+              wx:for-item="gooddata"
+            >
+              <view bindtap="goodItemClick" 
+                    data-goodId="{{gooddata.id}}" class="gridview-content-item">
+                <image src="{{gooddata.imageurl}}"></image>
+                <view class="gridview-content-info">
+                    <view class="text-title">{{gooddata.title}}</view>
+                    <view class="text-desp">{{gooddata.descp}}</view>
+                    <view class="text-price">¥{{gooddata.price}}</view>
+                </view>
+              </view>
+            </block>  
+
+
+        </view>
+
+
+      </view>
+    </block>
+
+
+
+  </view>
+
+</block>
+
+
+<!-- 代表还没有拿到首页的数据 -->
+<block wx:else>
+    <template is="loading" />
+</block>
+

@@ -1,0 +1,17 @@
+<view class="addcart">
+  
+    <!-- 左 -->
+    <view bindtap="clickCart" class="left">
+      <image src="../../image/zw_iconb4.png"></image>
+    </view>
+    <!-- 中 -->
+    <view bindtap="clickAddCart" class="center">
+      加入购物车
+    </view>
+    <!-- 右 -->
+    <view bindtap="clickBuy" class="right">
+      立即购买
+    </view>
+
+
+</view>

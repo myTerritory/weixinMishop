@@ -1,0 +1,73 @@
+<!--pages/mine/mine.wxml-->
+<!-- 1.导入外部定义的模板 -->
+<import src="../../template/authorize.wxml"></import>
+<import src="../../template/loading.wxml"></import>
+
+
+<!-- 授权成功显示下面布局 -->
+<block wx:if="{{userInfo}}">
+  <!-- 登录成功显示的布局 -->
+  <view wx:if="{{mineBean}}" class="mine-content">
+      <!--头部布局  -->
+      <view class="mine-header">
+           <!--左  -->
+          <view class="left">
+              <image src="{{userInfo.avatarUrl}}"></image>
+          </view>
+          <!-- 中 -->
+          <view class="center">
+              <view>{{userInfo.nickName}}</view>
+              <view>小米账号：23412343434</view>
+          </view>
+          <!-- 右 -->
+          <view class="right">
+              <image src="../../image/z-code.png"></image>
+          </view>
+      </view> 
+
+
+      <!-- item布局 -->
+      <view class="mine-item">
+
+        <view class="weui-cells weui-cells_after-title">
+
+           <block wx:for="{{mineBean.settings}}" wx:key="{{index}}">
+
+             <view class="weui-cell"
+               bindtap="itemClick"
+               data-index="{{index}}"
+             >
+                <view class="weui-cell__hd">
+                    <image src="{{item.imageUrl}}" style="margin-right: 5px;vertical-align: middle;width:28px; height: 28px;"></image>
+                </view>
+                <view class="weui-cell__bd" style="font-size:34rpx;">{{item.name}}</view>
+            </view>
+
+           </block>
+
+
+
+        </view>
+
+      </view>
+
+
+
+  </view>
+
+  <!-- 还没有登录成功显示的加载中布局 -->
+  <view wx:else>
+       <template is="loading"></template> 
+  </view>
+
+
+
+</block>
+
+
+<!-- 没有授权显示下面布局 -->
+<block wx:else>
+  <!-- 2.使用模板 -->
+  <template is="authorize" data="{{btnClick:'authorizeClick'}}"></template>
+</block>
+

@@ -1,0 +1,130 @@
+/* pages/detail/detail.wxss */
+.detail-scroll-view{
+  height: calc(100% - 120rpx);
+  background: #ddd;
+}
+
+/* 隐藏滚动条 */
+::-webkit-scrollbar{
+  background: transparent;
+  width: 0rpx;
+  height: 0rpx;
+}
+
+
+.detail-swiper{
+  width: 100%;
+  height: 800rpx;
+  background: skyblue;
+}
+
+.detail-swiper image{
+  width: 100%;
+  height: 100%;
+}
+
+/* 商品信息 */
+.good-info{
+  padding: 30rpx;
+  background: white;
+}
+
+.good-info view:nth-of-type(2){
+  color: gray;
+  font-size: 24rpx;
+  margin: 10rpx 0rpx;
+}
+.good-info view:nth-of-type(3){
+  color: #ff6802;
+}
+
+/* 用户的评论 */
+.user-assess{
+  height: 100rpx;
+  background: white;
+  margin-top: 20rpx;
+  border-bottom: 2rpx solid #ddd;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.user-assess text:nth-child(1){
+  font-size: 34rpx;
+  margin-left: 20rpx;
+}
+
+.user-assess text:nth-child(2){
+  font-size: 28rpx;
+  color: gray;
+  margin-right: 20rpx;
+
+}
+
+
+.user-assess-info{
+  display: flex;
+  flex-direction: row;
+  background: white;
+}
+
+.user-assess-info .left{
+  flex:1;
+  
+}
+
+.user-assess-info .left image{
+  width: 100rpx;
+  height: 100rpx;
+  margin: 30rpx;
+}
+
+.user-assess-info .right{
+  flex:4;
+}
+
+.user-assess-info .right view:nth-of-type(1){
+  margin-top: 30rpx;
+}
+
+.user-assess-info .right view:nth-of-type(2){
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+
+.user-assess-info .right view:nth-of-type(3){
+  font-size: 30rpx;
+  color: gray;
+  margin-bottom: 20rpx;
+}
+
+
+/* tabs组件中文本选中的样式类 */
+.tabs-text-active{
+  color: #ff6802;
+}
+.view-item-pic{
+  margin-bottom: 10rpx;
+}
+.view-item-pic,
+.view-item-pic image{
+  width: 100%;
+  height: 400rpx;
+}
+
+/* 透明的button */
+.btn-transparent{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  height: 120rpx;
+  width: 100%;
+  background: transparent;
+
+  z-index: 200;
+}
+
